@@ -5,7 +5,7 @@ test('Engineer object', () => {
     expect(engineer.name).toBe('Edwin');
     expect(engineer.id).toBe('1');
     expect(engineer.email).toBe('test@gmail.com');
-    expect(engineer.officeNumber).toBe('2')
+    expect(engineer.github).toBe('github')
 });
 
 test('Name method', () => {

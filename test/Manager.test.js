@@ -21,7 +21,7 @@ test('Email method', () => {
 });
 
 test('Role method', () => {
-    expect(manager.getRole()).toBe('Manager ');
+    expect(manager.getRole()).toBe('Manager');
 });
 
 test('OfficeNumber method', () => {
