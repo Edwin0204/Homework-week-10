@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Edwin0204/Homework-week-10/issues"
   },
-  "homepage": "https://github.com/Edwin0204/Homework-week-10#readme"
+  "homepage": "https://github.com/Edwin0204/Homework-week-10#readme",
+  "devDependencies": {
+    "jest": "^28.1.1"
+  }
 }
