@@ -1,4 +1,4 @@
-const generateManagerSection = ({ name, role, id, email, officeNumber }) => {
+const generateManagerSection = ({ name, id, email, officeNumber }) => {
     return `
     <div class="col-md-3 py-2">
         <div class="card h-100 bg-light shadow">
