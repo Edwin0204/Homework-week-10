@@ -4,7 +4,8 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const fs = require("fs");
 const path = require("path");
-const generatedhtml = path.join(DIST_DIR, "team.html");
+const distDir = path.resolve(__dirname, "output")
+const generatedhtml = path.join(distDir, "team.html");
 const teamMembers = [];
 
 
