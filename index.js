@@ -3,6 +3,9 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const fs = require("fs");
+const path = require("path");
+const generatedhtml = path.join(DIST_DIR, "team.html");
+const teamMembers = [];
 
 
 const inputData = () => {
@@ -62,6 +65,7 @@ const inputData = () => {
     ]).then(answers => {
         const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         teamMembers.push(manager);
+        inputrole();
     })
    
 };
@@ -149,5 +153,72 @@ const engineer = () => {
         inputrole();
     })
 };
+
+const intern = () => {
+      return inquirer.prompt([
+        {
+            type: 'input',
+            message: 'Insert the name of the Intern',
+            name: 'name',
+            validate: name => {
+                if (name) {
+                    return true;
+                } else {
+                    console.log('Please insert a name');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Insert Intern ID',
+            name: 'id',
+            validate: id => {
+                if (id) {
+                    return true;
+                } else {
+                    console.log('Please insert an ID');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Insert an email',
+            name: 'email',
+            validate: email => {
+                if (email) {
+                    return true;
+                } else {
+                    console.log('Please insert an email');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            message: 'Insert the school name',
+            name: 'school',
+            validate: school => {
+                if (school) {
+                    return true;
+                } else {
+                    console.log('Please insert a school');
+                    return false;
+                }
+            }
+        }
+    ]).then(input => {
+        console.log(input);
+        const intern = new Intern(input.name, input.employeeId, input.email, input.school);
+        teamMembers.push(intern);
+        inputrole();
+    })
+};
+
+const buildTeam = () => {
+    console.log("Your team is being created");
+    fs.writeFileSync(generatedhtml, generateSite(teamMembers), "utf-8");
+}
 
 inputData();
