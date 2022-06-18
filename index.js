@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const distDir = path.resolve(__dirname, "output")
 const generatedhtml = path.join(distDir, "team.html");
-const teamMembers = [];
+const team = [];
 
 
 const inputData = () => {
@@ -65,7 +65,7 @@ const inputData = () => {
         },
     ]).then(answers => {
         const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-        teamMembers.push(manager);
+        team.push(manager);
         inputrole();
     })
    
@@ -150,7 +150,7 @@ const engineer = () => {
     ]).then(input => {
         console.log(input);
         const engineer = new Engineer(input.name, input.id, input.email, input.github);
-        teamMembers.push(engineer);
+        team.push(engineer);
         inputrole();
     })
 };
@@ -212,14 +212,14 @@ const intern = () => {
     ]).then(input => {
         console.log(input);
         const intern = new Intern(input.name, input.employeeId, input.email, input.school);
-        teamMembers.push(intern);
+        team.push(intern);
         inputrole();
     })
 };
 
 const buildTeam = () => {
     console.log("Your team is being created");
-    fs.writeFileSync(generatedhtml, generateSite(teamMembers), "utf-8");
+    fs.writeFileSync(generatedhtml, createTeam(team), "utf-8");
 }
 
 inputData();
