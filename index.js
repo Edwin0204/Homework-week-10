@@ -6,6 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const distDir = path.resolve(__dirname, "output")
 const generatedhtml = path.join(distDir, "team.html");
+const createTeam = require('./src/generateHtml');
 const team = [];
 
 
@@ -211,7 +212,7 @@ const intern = () => {
         }
     ]).then(input => {
         console.log(input);
-        const intern = new Intern(input.name, input.employeeId, input.email, input.school);
+        const intern = new Intern(input.name, input.id, input.email, input.school);
         team.push(intern);
         inputrole();
     })
